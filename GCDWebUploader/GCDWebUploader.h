@@ -26,6 +26,8 @@
  */
 
 #import "GCDWebServer.h"
+#import "GCDWebServerMultiPartFormRequest.h"
+#import "GCDWebServerURLEncodedFormRequest.h"
 
 @class GCDWebUploader;
 
@@ -156,6 +158,7 @@
  */
 - (instancetype)initWithUploadDirectory:(NSString*)path;
 
+
 @end
 
 /**
@@ -193,5 +196,12 @@
  *  The default implementation returns YES.
  */
 - (BOOL)shouldCreateDirectoryAtPath:(NSString*)path;
+
+- (GCDWebServerResponse*)listDirectory:(GCDWebServerRequest*)request;
+- (GCDWebServerResponse*)downloadFile:(GCDWebServerRequest*)request;
+- (GCDWebServerResponse*)uploadFile:(GCDWebServerMultiPartFormRequest*)request;
+- (GCDWebServerResponse*)moveItem:(GCDWebServerURLEncodedFormRequest*)request;
+- (GCDWebServerResponse*)deleteItem:(GCDWebServerURLEncodedFormRequest*)request;
+- (GCDWebServerResponse*)createDirectory:(GCDWebServerURLEncodedFormRequest*)request;
 
 @end
