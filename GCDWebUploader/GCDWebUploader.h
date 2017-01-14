@@ -81,7 +81,7 @@
 /**
  *  Returns the upload directory as specified when the uploader was initialized.
  */
-@property(nonatomic, readonly) NSString* uploadDirectory;
+@property(nonatomic, copy) NSString* uploadDirectory;
 
 /**
  *  Sets the delegate for the uploader.
